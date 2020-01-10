@@ -1,0 +1,27 @@
+<label class="book-label">Show Available Books </label>
+&nbsp;&nbsp;
+<label class="switch">
+  <input type="checkbox" (click)="showBookList()" [checked]="checkboxToggle === true ? true:false">
+  <span class="slider round"></span>
+</label>
+<div *ngIf="checkboxToggle === true">
+  <button type="button" class="books-button" (click)="showRentBookForm()">Rent Out Books</button>
+  <button class="books-button" (click)="showReturnBackForm()">Return Rented Books</button>
+  <span class="warning-message" *ngIf="getStatus() === -1">Please select one of the rows from table</span>
+  <br><br><br>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of bookList;let ind = index;">
+        <input type="checkbox" (click)="populateBookList(ind)" />
+        <td>{{book}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<router-outlet></router-outlet>

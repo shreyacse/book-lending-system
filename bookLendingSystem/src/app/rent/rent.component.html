@@ -1,0 +1,31 @@
+<div [formGroup]="profileForm">
+    <h3>Rent Book Form</h3>
+  
+    <label>
+      User Name:
+      <input type="text" formControlName="userName">
+    </label>
+  
+    <label>
+      Membership Number:
+      <input type="number" formControlName="membershipNumber">
+    </label>
+    
+    <label>
+      Rent Duration:
+      <input type="number" (keydown)="getReturnDate($event)" formControlName="duration">
+    </label>
+  
+    <label>
+      Return Date:
+      <input type="string" formControlName="returnDate">
+    </label>
+    <div>
+        <button class="button" (click)="submit()">
+            Submit
+          </button>
+    </div>
+    <span *ngIf="profileForm.invalid" class="eror-message">
+        Please enter the required fields.
+      </span>
+  </div>

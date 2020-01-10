@@ -1,0 +1,21 @@
+<div [formGroup]="profileForm">
+    <h3>Return Book Form</h3>
+  
+    <label>
+      User Name:
+      <input type="text" formControlName="userName">
+    </label>
+  
+    <label>
+      Membership Number:
+      <input type="number" formControlName="membershipNumber">
+    </label>
+    <div>
+        <button class="button">
+            Submit
+          </button>
+    </div>
+</div>
+<span *ngIf="profileForm.invalid" class="eror-message">
+    Please enter the required fields.
+  </span>
